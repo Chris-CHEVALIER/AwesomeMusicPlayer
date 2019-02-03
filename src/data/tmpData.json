@@ -1,0 +1,39 @@
+[
+    {
+        id: "1",
+        artist: "Daft Punk",
+        name: "Random Access Memories",
+        ImageUrl: "../../images/daft-punk.jpg",
+        tracks: [
+            "Give Life Back to Music",
+            "The Game of Love",
+            "Giorgio by Moroder",
+            "Within",
+            "Instant Crush",
+            "Lose Yourself to Dance",
+            "Touch",
+            "Get Lucky",
+            "Beyond",
+            "Motherboard",
+            "Fragments of Time",
+            "Doin' It Right",
+            "Contact"
+        ]
+    },
+    {
+        id: "2",
+        artist: "Barns Courtney",
+        name: "The Attractions of Youth",
+        ImageUrl: "../../images/glitter-gold.jpg",
+        tracks: [
+            "Glitter & Gold",
+            "Fire",
+            "Golden Dandelions",
+            "Never Let You Down",
+            "Kicks",
+            "Champion",
+            "99",
+            "Good Thing"
+        ]
+    }
+];
