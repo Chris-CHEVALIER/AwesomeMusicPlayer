@@ -15,11 +15,12 @@ const styles = StyleSheet.create({
     label: {
         fontSize: 22,
         fontWeight: "bold",
+        color: "white",
         marginLeft: 20
     },
     info: {
         fontSize: 20,
-        color: "gray",
+        color: "lightgray",
         marginLeft: 40
     },
     children: {
@@ -75,7 +76,7 @@ export default class Accordion extends React.Component {
                         <FontAwesome
                             name={icon}
                             size={30}
-                            style={{ marginRight: 15 }}
+                            style={{ marginRight: 15, color: "white" }}
                         />
                     </View>
                     <Text style={styles.info}>{info}</Text>

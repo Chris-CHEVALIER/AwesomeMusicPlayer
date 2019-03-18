@@ -134,6 +134,9 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-audio-player-recorder')
+    implementation project(':react-native-open-settings')
+    implementation project(':react-native-audio-record')
     implementation project(':react-native-video')
     implementation project(':react-native-webview')
     implementation project(':react-native-gesture-handler')

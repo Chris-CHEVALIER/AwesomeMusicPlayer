@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 const Header = ({ message, onDownPress, onQueuePress, onMessagePress }) => (
     <View style={styles.container}>
-        <TouchableOpacity onPress={onDownPress}>
+        <TouchableOpacity onPress={() => onDownPress}>
             <Image
                 style={styles.button}
                 source={require("../../images/ic_keyboard_arrow_down_white.png")}

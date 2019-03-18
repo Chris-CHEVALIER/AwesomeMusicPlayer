@@ -4,7 +4,7 @@ import Home from "./views/Home";
 import MusicPlayer from "./views/MusicPlayer";
 
 const RootStack = createStackNavigator({
-    //Home: Home,
+    Home: Home,
     MusicPlayer: {
         screen: MusicPlayer,
         navigationOptions: {

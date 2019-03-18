@@ -3,6 +3,9 @@ package com.awesomemusicplayer;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.rnim.rn.audio.ReactNativeAudioPackage;
+import com.opensettings.OpenSettingsPackage;
+import com.goodatlas.audiorecord.RNAudioRecordPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
@@ -26,9 +29,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new ReactNativeAudioPackage(),
+            new RNAudioRecordPackage(),
             new RNCWebViewPackage(),
             new RNGestureHandlerPackage(),
-            new ReactVideoPackage()
+            new ReactVideoPackage(),
+            new OpenSettingsPackage()
       );
     }
 
