@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
-var Slider = require("react-native-slider");
+import Slider from "react-native-slider";
 
 function pad(n, width, z = 0) {
     n = n + "";

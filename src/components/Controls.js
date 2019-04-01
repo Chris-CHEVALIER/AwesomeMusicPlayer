@@ -4,22 +4,22 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 const Controls = ({
     paused,
     shuffleOn,
-    repeatOn,
+    recording,
     onPressPlay,
     onPressPause,
     onBack,
     onForward,
     onPressShuffle,
-    onPressRepeat,
+    onPressRecord,
     forwardDisabled
 }) => (
     <View style={styles.container}>
-        <TouchableOpacity activeOpacity={0.0} onPress={onPressShuffle}>
+        {/*<TouchableOpacity activeOpacity={0.0} onPress={onPressShuffle}>
             <Image
                 style={[styles.secondaryControl, shuffleOn ? [] : styles.off]}
                 source={require("../../images/ic_shuffle_white.png")}
             />
-        </TouchableOpacity>
+        </TouchableOpacity>*/}
         <View style={{ width: 40 }} />
         <TouchableOpacity onPress={onBack}>
             <Image
@@ -52,10 +52,10 @@ const Controls = ({
             />
         </TouchableOpacity>
         <View style={{ width: 40 }} />
-        <TouchableOpacity activeOpacity={0.0} onPress={onPressRepeat}>
+        <TouchableOpacity activeOpacity={0.0} onPress={onPressRecord}>
             <Image
-                style={[styles.secondaryControl, repeatOn ? [] : styles.off]}
-                source={require("../../images/ic_repeat_white.png")}
+                style={[styles.secondaryControl, recording ? [] : styles.off]}
+                source={require("../../images/record_voice_over_white_36pt.png")}
             />
         </TouchableOpacity>
     </View>
@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     secondaryControl: {
-        height: 18,
-        width: 18
+        height: 30,
+        width: 30
     },
     off: {
         opacity: 0.3

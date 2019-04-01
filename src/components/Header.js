@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 const Header = ({ message, onDownPress, onQueuePress, onMessagePress }) => (
     <View style={styles.container}>
-        <TouchableOpacity onPress={() => onDownPress}>
+        <TouchableOpacity onPress={onDownPress}>
             <Image
                 style={styles.button}
                 source={require("../../images/ic_keyboard_arrow_down_white.png")}
@@ -12,12 +12,12 @@ const Header = ({ message, onDownPress, onQueuePress, onMessagePress }) => (
         <Text onPress={onMessagePress} style={styles.message}>
             {message.toUpperCase()}
         </Text>
-        <TouchableOpacity onPress={onQueuePress}>
+        {/*<TouchableOpacity onPress={onQueuePress}>
             <Image
                 style={styles.button}
                 source={require("../../images/ic_queue_music_white.png")}
             />
-        </TouchableOpacity>
+        </TouchableOpacity>*/}
     </View>
 );
 
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: "rgba(255, 255, 255, 0.72)",
         fontWeight: "bold",
-        fontSize: 10
+        fontSize: 18
     },
     button: {
         opacity: 0.72

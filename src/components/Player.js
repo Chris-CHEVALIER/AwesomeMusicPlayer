@@ -22,12 +22,10 @@ export default class Player extends Component {
     }
 
     setDuration(data) {
-        // console.log(totalLength);
         this.setState({ totalLength: Math.floor(data.duration) });
     }
 
     setTime(data) {
-        //console.log(data);
         this.setState({ currentPosition: Math.floor(data.currentTime) });
     }
 

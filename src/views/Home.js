@@ -15,16 +15,13 @@ import { List } from "antd-mobile-rn";
 import Theme from "../theme";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Accordion from "../components/Accordion";
-import AudioRecord from "react-native-audio-record";
 import { AudioRecorder } from "react-native-audio-player-recorder";
 import OpenSettings from "react-native-open-settings";
 import { AudioUtils } from "react-native-audio-player-recorder";
-import { ToastAndroid } from "react-native";
 
 const Item = List.Item;
-const Brief = Item.Brief;
 
-import albums from "../data/tmpData.json";
+import albums from "../data/albums.json";
 
 const styles = StyleSheet.create({
     container: {
@@ -33,7 +30,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default class Home extends React.Component {
+export default class Albums extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -168,7 +165,7 @@ export default class Home extends React.Component {
             arr.push(
                 <View key={album.id}>
                     <Accordion label={album.name} info={album.artist}>
-                        {this.renderTracks(album.tracks)}
+                        {this.renderTracks(album.tracks, album)}
                     </Accordion>
                 </View>
             );
@@ -182,27 +179,30 @@ export default class Home extends React.Component {
         return <View>{arr}</View>;
     }
 
-    renderTracks(tracks) {
+    renderTracks(tracks, album) {
         const { navigate } = this.props.navigation;
         let arr = [];
         for (let track of tracks) {
             arr.push(
                 <View key={track}>
-                    <TouchableOpacity>
-                        <Item
-                            arrow="horizontal"
-                            multipleLine
-                            onClick={navigate("MusicPlayer")}
-                            platform="android"
+                    <TouchableOpacity
+                        onPress={() =>
+                            navigate("MusicPlayer", {
+                                currentTrack: track,
+                                currentAlbum: album
+                            })
+                        }
+                    >
+                        <Text
+                            style={{
+                                fontSize: 18,
+                                marginLeft: 20,
+                                margin: 10,
+                                color: "white"
+                            }}
                         >
-                            <Text
-                                style={{
-                                    fontSize: 17
-                                }}
-                            >
-                                {track}
-                            </Text>
-                        </Item>
+                            {track}
+                        </Text>
                     </TouchableOpacity>
                 </View>
             );

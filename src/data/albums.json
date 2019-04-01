@@ -4,6 +4,8 @@
         artist: "Daft Punk",
         name: "Random Access Memories",
         ImageUrl: "../../images/daft-punk.jpg",
+        art:
+            "https://t2.genius.com/unsafe/523x0/https%3A%2F%2Fimages.genius.com%2Fec86020d19e2a36711ff12c4190d6cdb.990x1000x1.jpg",
         tracks: [
             "Give Life Back to Music",
             "The Game of Love",
@@ -25,6 +27,7 @@
         artist: "Barns Courtney",
         name: "The Attractions of Youth",
         ImageUrl: "../../images/glitter-gold.jpg",
+        art: "https://m.media-amazon.com/images/I/715ur2VwzBL._SS500_.jpg",
         tracks: [
             "Glitter & Gold",
             "Fire",

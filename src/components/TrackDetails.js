@@ -18,12 +18,12 @@ const TrackDetails = ({
     onArtistPress
 }) => (
     <View style={styles.container}>
-        <TouchableOpacity onPress={onAddPress}>
+        {/*<TouchableOpacity onPress={onAddPress}>
             <Image
                 style={styles.button}
                 source={require("../../images/ic_add_circle_outline_white.png")}
             />
-        </TouchableOpacity>
+</TouchableOpacity>*/}
         <View style={styles.detailsWrapper}>
             <Text style={styles.title} onPress={onTitlePress}>
                 {title}
@@ -32,14 +32,14 @@ const TrackDetails = ({
                 {artist}
             </Text>
         </View>
-        <TouchableOpacity onPress={onMorePress}>
+        {/*<TouchableOpacity onPress={onMorePress}>
             <View style={styles.moreButton}>
                 <Image
                     style={styles.moreButtonIcon}
                     source={require("../../images/ic_more_horiz_white.png")}
                 />
             </View>
-        </TouchableOpacity>
+        </TouchableOpacity>*/}
     </View>
 );
 
