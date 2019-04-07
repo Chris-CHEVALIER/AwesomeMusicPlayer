@@ -11,22 +11,26 @@ import {
     PermissionsAndroid,
     Alert
 } from "react-native";
-import { List } from "antd-mobile-rn";
-import Theme from "../theme";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Accordion from "../components/Accordion";
 import { AudioRecorder } from "react-native-audio-player-recorder";
 import OpenSettings from "react-native-open-settings";
 import { AudioUtils } from "react-native-audio-player-recorder";
-
-const Item = List.Item;
 
 import albums from "../data/albums.json";
 
 const styles = StyleSheet.create({
     container: {
         height: "100%",
-        backgroundColor: "black"
+        backgroundColor: "#292929"
+    },
+    recordingButton: {
+        height: 30,
+        width: 30,
+        margin: 20,
+        alignSelf: "flex-end"
+    },
+    off: {
+        opacity: 0.3
     }
 });
 
@@ -34,14 +38,14 @@ export default class Albums extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isRecording: false
+            recording: false
         };
     }
 
     static navigationOptions = {
         title: "Albums",
         headerStyle: {
-            backgroundColor: Theme.brand_secondary
+            backgroundColor: "white"
         }
     };
 
@@ -83,7 +87,7 @@ export default class Albums extends React.Component {
     startRecording() {
         this.checkRecordPermission();
         this.setState({
-            isRecording: true
+            recording: true
         });
         this.prepareRecordingPath();
         AudioRecorder.startRecording();
@@ -111,55 +115,30 @@ export default class Albums extends React.Component {
     }
 
     render() {
-        const { isRecording } = this.state;
-        console.log(isRecording);
-
         return (
             <View style={styles.container}>
                 <ScrollView style={{ marginTop: 10 }}>
                     {this.renderAlbums()}
                 </ScrollView>
-                <View>
-                    {!isRecording ? (
-                        <TouchableOpacity
-                            onPress={() => {
-                                this.startRecording();
-                            }}
-                        >
-                            <FontAwesome
-                                name="microphone"
-                                size={50}
-                                style={{
-                                    margin: 20,
-                                    alignSelf: "flex-end",
-                                    color: Theme.brand_primary
-                                }}
-                            />
-                        </TouchableOpacity>
-                    ) : (
-                        <TouchableOpacity
-                            onPress={() => {
-                                this.stopRecording();
-                            }}
-                        >
-                            <FontAwesome
-                                name="check"
-                                size={50}
-                                style={{
-                                    margin: 20,
-                                    alignSelf: "flex-end",
-                                    color: Theme.brand_primary
-                                }}
-                            />
-                        </TouchableOpacity>
-                    )}
-                </View>
+                <TouchableOpacity
+                    activeOpacity={0.0}
+                    onPress={() => {
+                        this.setState({ recording: !this.state.recording });
+                    }}
+                >
+                    <Image
+                        style={[
+                            styles.recordingButton,
+                            this.state.recording ? [] : styles.off
+                        ]}
+                        source={require("../../images/record_voice_over_white_36pt.png")}
+                    />
+                </TouchableOpacity>
             </View>
         );
     }
 
     renderAlbums() {
-        // Récupérer albums en BDD
         let arr = [];
         for (let album of albums) {
             arr.push(
@@ -170,7 +149,6 @@ export default class Albums extends React.Component {
                 </View>
             );
         }
-
         if (!arr || arr.length === 0) {
             return (
                 <Text style={styles.noDataMessage}>Aucun album trouvé.</Text>

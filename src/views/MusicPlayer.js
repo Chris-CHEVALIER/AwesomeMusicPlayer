@@ -10,6 +10,13 @@ import { AudioRecorder } from "react-native-audio-player-recorder";
 import OpenSettings from "react-native-open-settings";
 import { AudioUtils } from "react-native-audio-player-recorder";
 
+const styles = StyleSheet.create({
+    container: {
+        height: "100%",
+        backgroundColor: "#292929"
+    }
+});
+
 export default class MusicPlayer extends React.Component {
     constructor(props) {
         super(props);
@@ -139,14 +146,7 @@ export default class MusicPlayer extends React.Component {
             "Commande vocale enregistré dans " +
                 AudioUtils.DocumentDirectoryPath
         );
-        fetch("localhost:3000/transcriber", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: '{"foo": "bar"}'
-        }).then(d => console.log(d));
+
         /*AudioRecord.stop();
         /* or to get the wav file path
         audioFile = await AudioRecord.stop();
@@ -154,6 +154,20 @@ export default class MusicPlayer extends React.Component {
         AudioRecord.on("data", data => {
             console.log("data : ", data);
         });*/
+    }
+
+    test() {
+        fetch("http://localhost:3000/", {
+            method: "POST",
+            body: JSON.stringify({
+                a: "hello"
+            }),
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(function(response) {
+                return response.json();
+            })
+            .catch(error => console.log(error));
     }
 
     render() {
@@ -185,7 +199,8 @@ export default class MusicPlayer extends React.Component {
                 />
                 <Controls
                     onPressRecord={() => {
-                        this.setState({ recording: !this.state.recording });
+                        //this.setState({ recording: !this.state.recording });
+                        this.test();
                     }}
                     recording={this.state.recording}
                     shuffleOn={this.state.shuffleOn}
@@ -206,10 +221,3 @@ export default class MusicPlayer extends React.Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        height: "100%",
-        backgroundColor: "black"
-    }
-});

@@ -1,16 +1,11 @@
-// @flow
-
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-
-import Theme from "../theme";
 
 const styles = StyleSheet.create({
     container: {
         borderBottomWidth: 1,
-        borderBottomColor: Theme.brand_primary
+        borderBottomColor: "white"
     },
     label: {
         fontSize: 22,
@@ -24,15 +19,13 @@ const styles = StyleSheet.create({
         marginLeft: 40
     },
     children: {
-        margin: 5,
+        margin: 2,
         marginLeft: 20
     }
 });
 
 export default class Accordion extends React.Component {
-    state;
-
-    constructor(props) {
+    constructor() {
         super();
         this.state = {
             isOpen: false,
